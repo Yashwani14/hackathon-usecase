@@ -16,7 +16,7 @@ jobs:
         uses: docker/login-action@v3
         with:
           username: "polu99"
-          password: ${{ secrets.DOCKERHUB_TOKEN }}
+          password: "dckr_pat_kNL3D6lPt8ey_cKa5nDLDy6B5-4"
 
       - name: Build and Push Docker Image
         uses: docker/build-push-action@v6
