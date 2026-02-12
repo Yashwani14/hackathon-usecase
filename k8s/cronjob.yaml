@@ -1,0 +1,19 @@
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: order-cleanup-cron
+  namespace: hackathon
+spec:
+  schedule: "*/5 * * * *"   # every 5 minutes
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          containers:
+          - name: cleanup
+            image: curlimages/curl:latest
+            command: ["curl"]
+            args: ["http://order-service.hackathon.svc.cluster.local:8080/api/v1/cleanup"]
+          restartPolicy: Never
+  successfulJobsHistoryLimit: 3
+  failedJobsHistoryLimit: 3
