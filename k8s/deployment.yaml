@@ -2,6 +2,8 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: order-service
+  labels:
+    app: order-service
 spec:
   replicas: 2
   selector:
@@ -14,9 +16,17 @@ spec:
     spec:
       containers:
         - name: order-service
-          image: acrcreate.azurecr.io/order-service:1.0.0
+          image: acrcreate.azurecr.io/order-service:1.0.0   # GOOD image
           ports:
             - containerPort: 8080
+
+          resources:
+            requests:
+              cpu: 200m
+              memory: 256Mi
+            limits:
+              cpu: 500m
+              memory: 512Mi
 
           startupProbe:
             tcpSocket:
@@ -35,4 +45,3 @@ spec:
               port: 8080
             initialDelaySeconds: 30
             periodSeconds: 10
-
