@@ -8,7 +8,7 @@ spec:
   source:
     repoURL: "https://github.com/Yashwani14/hackathon-usecase"
     targetRevision: main
-    path: order-service/k8s
+    path: k8s                # ← FIXED PATH
   destination:
     server: https://kubernetes.default.svc
     namespace: order-service
