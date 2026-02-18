@@ -2,7 +2,6 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: order-service
-  namespace: hackathon
 spec:
   replicas: 2
   selector:
@@ -15,7 +14,7 @@ spec:
     spec:
       containers:
         - name: order-service
-          image: polu99/order-service:latest
+          image: acrcreate.azurecr.io/order-service:1.0.0
           ports:
             - containerPort: 8080
 
@@ -41,7 +40,7 @@ spec:
 kind: Deployment
 metadata:
   name: order-service
-  namespace: hackathon
+  
 spec:
   replicas: 2
   selector:
@@ -54,7 +53,7 @@ spec:
     spec:
       containers:
         - name: order-service
-          image: polu99/order-service:latest
+          image: acrcreate.azurecr.io/order-service:1.0.0
           ports:
             - containerPort: 8080
 
